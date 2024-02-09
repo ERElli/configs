@@ -12,11 +12,12 @@ function git_current_branch() {
 function grp() {
 	cur_dir=$(pwd)
 	dest_dir=$(z -e $1)
+	branch_name=$2
 	echo "Navigating to ${dest_dir}..."	
 	z $1
-	echo "Fetching latest..."
+	echo "Fetching latest refs..."
 	git fetch
-	hash=$(git rev-parse $2 | tr -d '\n')
+	hash=$(git rev-parse $branch_name | tr -d '\n')
 	echo "Back to $cur_dir... \n"
 	cd $cur_dir
 	if [[ $3 = 'cb' ]]; then
