@@ -3,6 +3,7 @@ return {
   event = "VimEnter",
   lazy = false,
   enabled = true,
+  dependencies = { "nvim-telescope/telescope.nvim" },
   config = function()
     local dashboard = require "alpha.themes.dashboard"
     dashboard.section.header.val = require("plugins.dashboard.logos")["random"]
