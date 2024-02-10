@@ -5,8 +5,8 @@ return {
 		plugins = { spelling = true },
 		defaults = {
 			mode = { "n", "v" },
-			["g"] = { name = "+goto" },
-			["gs"] = { name = "+surround" },
+			["<leader>f"] = { name = "+find/find" },
+			["<leader>h"] = { name = "+harpoon" },
 			["]"] = { name = "+next" },
 			["["] = { name = "+prev" },
 			["<leader><tab>"] = { name = "+tabs" },
