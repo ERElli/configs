@@ -18,11 +18,11 @@ export CODE_DIR='~/code'
 typeset +x BLN_PATH_TO_OPS='~/code/bln-ops-plan-state'
 
 # Sourcing plugins and themes
-source ~/.zsh/git-open/git-open.plugin.zsh
-source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
-source ~/.zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.zsh/zsh-z/zsh-z.plugin.zsh
+source ~/.zsh/plugins/git-open/git-open.plugin.zsh
+source ~/.zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme
+source ~/.zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/plugins/zsh-z/zsh-z.plugin.zsh
 
 # Sourcing alias files
 for alias_files in ~/.zsh/aliases/*.zsh; do source $alias_files; done
@@ -31,4 +31,4 @@ for alias_files in ~/.zsh/aliases/*.zsh; do source $alias_files; done
 
 export PATH="$HOME/.zsh/scripts:$PATH"
 
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh # per the docs, this must be at the end of this file
+source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh # per the docs, this must be at the end of this file
