@@ -15,7 +15,7 @@ return {
 			"hrsh7th/cmp-nvim-lsp-signature-help",
 		},
 		config = function(plugin)
-			require ("plugins.lsp.servers").setup(plugin)
+			require("plugins.lsp.servers").setup(plugin)
 		end,
 	},
 	{
@@ -23,14 +23,14 @@ return {
 		cmd = "Mason",
 		dependencies = { { "williamboman/mason-lspconfig.nvim", lazy = false } },
 		keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
-		ensure_installed = {
-			"stylua",
-			"ruff",
-		},
 		config = function(plugin)
+			local ensure_installed = {
+				"stylua",
+				"ruff",
+			}
 			require("mason").setup()
 			local mr = require("mason-registry")
-			for _, tool in ipairs(plugin.ensure_installed) do
+			for _, tool in ipairs(ensure_installed) do
 				local p = mr.get_package(tool)
 				if not p:is_installed() then
 					p:install()
@@ -44,12 +44,12 @@ return {
 		dependencies = { "mason.nvim" },
 		config = function()
 			local nls = require("null-ls")
-			nls.setup {
+			nls.setup({
 				sources = {
 					nls.builtins.formatting.stylua,
-					nls.builtins.diagnostics.ruff.with { extra_args = { "--max-line-length=180" } }
+					nls.builtins.diagnostics.ruff.with({ extra_args = { "--max-line-length=180" } }),
 				},
-			}
+			})
 		end,
 	},
 	{
@@ -63,4 +63,3 @@ return {
 		config = true,
 	},
 }
-

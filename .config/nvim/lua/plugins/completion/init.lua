@@ -16,7 +16,8 @@ return {
 
 			local has_words_before = function()
 				local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-				return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+				return col ~= 0
+					and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 			end
 
 			cmp.setup({
@@ -104,7 +105,7 @@ return {
 					{ name = "buffer" },
 				},
 			})
-			
+
 			cmp.setup.cmdline(":", {
 				mapping = cmp.mapping.preset.cmdline(),
 				source = cmp.config.sources({
@@ -123,7 +124,7 @@ return {
 				require("luasnip.loaders.from_vscode").lazy_load()
 			end,
 		},
-		config = {
+		opts = {
 			history = true,
 			delete_check_events = "TextChanged",
 		},
@@ -133,10 +134,25 @@ return {
 				function()
 					return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>"
 				end,
-				expr = true, remap = true, silent = true, mode = "i",
+				expr = true,
+				remap = true,
+				silent = true,
+				mode = "i",
 			},
-			{ "<tab>", function() require("luasnip").jump(1) end, mode = "s" },
-			{ "<s-tab>", function() require("luasnip").jump(-1) end, mode = { "i", "s" } },
+			{
+				"<tab>",
+				function()
+					require("luasnip").jump(1)
+				end,
+				mode = "s",
+			},
+			{
+				"<s-tab>",
+				function()
+					require("luasnip").jump(-1)
+				end,
+				mode = { "i", "s" },
+			},
 		},
 	},
 }
