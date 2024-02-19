@@ -24,7 +24,7 @@ local servers = {
 			},
 		},
 	},
-	sumneko_lua = {
+	lua_ls = {
 		settings = {
 			Lua = {
 				workspace = {
@@ -65,20 +65,20 @@ function M.setup(_)
 		require("plugins.lsp.keymaps").on_attach(client, buffer)
 	end)
 
-	require("mason-lspconfig").setup { ensure_installed = vim.tbl_keys(servers) }
-	require("mason-lspconfig").setup_handlers {
+	require("mason-lspconfig").setup({ ensure_installed = vim.tbl_keys(servers) })
+	require("mason-lspconfig").setup_handlers({
 		function(server)
 			local opts = servers[server] or {}
 			opts.capabilities = lsp_capabilities()
 			require("lspconfig")[server].setup(opts)
 		end,
 		["rust_analyzer"] = function(server)
-			local rt = require "rust-tools"
+			local rt = require("rust-tools")
 			local opts = servers[server] or {}
 			opts.capabilities = lsp_capabilities()
-			rt.setup { server = opts }
+			rt.setup({ server = opts })
 		end,
-	}
+	})
 end
 
 return M
