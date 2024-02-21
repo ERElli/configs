@@ -15,6 +15,7 @@ vim.opt.ignorecase = true
 vim.opt.inccommand = "nosplit"
 vim.opt.joinspaces = false
 vim.opt.laststatus = 0
+vim.opt.listchars:append({ tab = "<->", eol = "↲", lead = "·", trail = "·", extends = "»", precedes = "«" })
 vim.opt.list = true
 vim.opt.mouse = "a"
 vim.opt.number = true
@@ -42,4 +43,4 @@ vim.opt.wildmode = "longest:full,full"
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
-vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
