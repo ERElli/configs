@@ -9,10 +9,10 @@ return {
 				flavour = "macchiato",
 				background = {
 					dark = "macchiato",
-					light = "frappee"
+					light = "frappe",
 				},
 			})
-			vim.cmd.colorscheme "catppuccin"
+			vim.cmd.colorscheme("catppuccin")
 		end,
 	},
 }
