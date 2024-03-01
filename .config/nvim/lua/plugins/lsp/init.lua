@@ -1,5 +1,19 @@
 return {
 	{
+		"folke/trouble.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		keys = {
+			{
+				"<leader>xx",
+				function()
+					require("trouble").toggle()
+				end,
+				mode = "n",
+				desc = "Toggle Trouble",
+			},
+		},
+	},
+	{
 		"neovim/nvim-lspconfig",
 		event = "BufReadPre",
 		dependencies = {
@@ -23,7 +37,7 @@ return {
 		cmd = "Mason",
 		dependencies = { { "williamboman/mason-lspconfig.nvim", lazy = false } },
 		keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
-		config = function(plugin)
+		config = function()
 			local ensure_installed = {
 				"stylua",
 				"ruff",

@@ -7,6 +7,7 @@ return {
 			mode = { "n", "v" },
 			["<leader>f"] = { name = "+find/find" },
 			["<leader>h"] = { name = "+harpoon" },
+			["<leader>gh"] = { name = "+github" },
 			["]"] = { name = "+next" },
 			["["] = { name = "+prev" },
 			["<leader><tab>"] = { name = "+tabs" },
