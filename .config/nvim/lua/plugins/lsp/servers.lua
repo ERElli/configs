@@ -39,9 +39,10 @@ local servers = {
 		},
 	},
 	tsserver = {
-		disable_formatting = false,
+		disable_formatting = true,
 	},
 	dockerls = {},
+	graphql = {},
 }
 
 local function lsp_attach(on_attach)
