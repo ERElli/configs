@@ -31,4 +31,6 @@ for alias_files in ~/.zsh/aliases/*.zsh; do source $alias_files; done
 
 export PATH="$HOME/.zsh/scripts:$PATH"
 
+eval $(thefuck --alias)
+
 source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh # per the docs, this must be at the end of this file

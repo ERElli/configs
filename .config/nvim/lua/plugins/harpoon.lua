@@ -6,7 +6,7 @@ return {
 		"nvim-lua/plenary.nvim",
 	},
 	config = function()
-		require("harpoon"):setup()
+		require("harpoon"):setup({})
 	end,
 	keys = {
 		{
