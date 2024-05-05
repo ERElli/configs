@@ -1,18 +1,18 @@
 [submodule ".zsh/plugins/git-open"]
-	path = root/.zsh/plugins/git-open
-  url = https://github.com/paulirish/git-open
+    path = root/.zsh/plugins/git-open
+    url = https://github.com/paulirish/git-open
 [submodule ".zsh/plugins/powerlevel10k"]
-	path = root/.zsh/plugins/powerlevel10k
-	url = https://github.com/romkatv/powerlevel10k
+    path = root/.zsh/plugins/powerlevel10k
+    url = https://github.com/romkatv/powerlevel10k
 [submodule ".zsh/plugins/zsh-autocomplete"]
-	path = root/.zsh/plugins/zsh-autocomplete
-	url = https://github.com/marlonrichert/zsh-autocomplete.git
+    path = root/.zsh/plugins/zsh-autocomplete
+    url = https://github.com/marlonrichert/zsh-autocomplete.git
 [submodule ".zsh/plugins/zsh-syntax-highlighting"]
-	path = root/.zsh/plugins/zsh-syntax-highlighting
-  url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+    path = root/.zsh/plugins/zsh-syntax-highlighting
+    url = https://github.com/zsh-users/zsh-syntax-highlighting.git
 [submodule ".zsh/plugins/zsh-z"]
-  path = .zsh/plugins/zsh-z
-  url = https://github.com/agkozak/zsh-z
+    path = root/.zsh/plugins/zsh-z
+    url = https://github.com/agkozak/zsh-z
 [submodule ".zsh/plugins/zsh-autosuggestions"]
-	path = root/.zsh/plugins/zsh-autosuggestions
-	url = https://github.com/zsh-users/zsh-autosuggestions.git
+    path = root/.zsh/plugins/zsh-autosuggestions
+    url = https://github.com/zsh-users/zsh-autosuggestions.git
