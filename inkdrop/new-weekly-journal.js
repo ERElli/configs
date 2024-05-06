@@ -44,7 +44,7 @@ module.exports = async ({ destinationNotebook = 'personal', weekOffset } = {}) =
         ;
     const title = `${daysOfWeek[0].split(',')[1].trim()} to ${daysOfWeek[6].split(',')[1].trim()}`
     const toc = daysOfWeek.reduce((acc, dayOfWeek) => {
-        acc += `- [${dayOfWeek}](##${dayOfWeek.toLowerCase().replace(', ', '-')})\n`;
+        acc += `- [${dayOfWeek}](#${dayOfWeek.toLowerCase().replace(', ', '-')})\n`;
         return acc;
     }, '');
     const headers = daysOfWeek.reduce((acc, dayOfWeek) => {
