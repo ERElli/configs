@@ -1,6 +1,7 @@
 local M = {}
 
 local servers = {
+	jsonls = {},
 	pyright = {
 		settings = {
 			python = {
