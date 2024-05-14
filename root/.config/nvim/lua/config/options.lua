@@ -4,7 +4,6 @@ vim.o.formatoptions = "jcroqlnt"
 vim.o.shortmess = "filnxtToOFWIcC"
 vim.opt.breakindent = true
 vim.opt.cmdheight = 0
-vim.opt.colorcolumn="120"
 vim.opt.completeopt = "menuone,noselect"
 vim.opt.conceallevel = 0
 vim.opt.confirm = true
