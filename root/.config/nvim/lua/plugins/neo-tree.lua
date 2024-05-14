@@ -22,5 +22,12 @@ return {
 			end,
 			desc = "Explorer NeoTree",
 		},
+		{
+			"<leader>fr",
+			function()
+				require("neo-tree.command").execute({ dir = vim.loop.cwd(), position = 'float', toggle = true, reveal = true })
+			end,
+			desc = "Open NeoTree with focus on current file"
+		},
 	},
 }
