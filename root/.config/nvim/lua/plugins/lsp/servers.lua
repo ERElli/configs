@@ -1,7 +1,23 @@
 local M = {}
 
 local servers = {
+	dockerls = {},
+	html = {},
 	jsonls = {},
+	lua_ls = {
+		settings = {
+			Lua = {
+				workspace = {
+					checkThirdParty = false,
+				},
+				completion = { callSnippet = "Replace" },
+				telemetry = { enable = false },
+				hint = {
+					enable = false,
+				},
+			},
+		},
+	},
 	pyright = {
 		settings = {
 			python = {
@@ -25,25 +41,8 @@ local servers = {
 			},
 		},
 	},
-	lua_ls = {
-		settings = {
-			Lua = {
-				workspace = {
-					checkThirdParty = false,
-				},
-				completion = { callSnippet = "Replace" },
-				telemetry = { enable = false },
-				hint = {
-					enable = false,
-				},
-			},
-		},
-	},
-	tsserver = {
-		disable_formatting = true,
-	},
-	dockerls = {},
-	graphql = {},
+	tsserver = {},
+	yamlls = {},
 }
 
 local function lsp_attach(on_attach)
