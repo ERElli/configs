@@ -3,11 +3,11 @@ return {
 	event = { "BufReadPost", "BufWritePost", "BufNewFile" },
 	opts = {
 		signs = {
-			add = { text = "▎" },
-			change = { text = "▎" },
-			delete = { text = "" },
+			add = { text = "+" },
+			change = { text = "~" },
+			delete = { text = "_" },
 			topdelete = { text = "" },
-			changedelete = { text = "▎" },
+			changedelete = { text = "~" },
 			untracked = { text = "▎" },
 		},
 		on_attach = function(buffer)
