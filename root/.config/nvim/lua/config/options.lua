@@ -49,3 +49,9 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 vim.g.have_nerd_font = true
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
+
+vim.filetype.add({
+	filename = {
+		['docker-compose.yaml'] = 'yaml.docker-compose'
+	}
+})
