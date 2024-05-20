@@ -22,6 +22,7 @@ return {
 			end)()
 
 			require("nvim-treesitter.configs").setup {
+				auto_install = true,
 				ensure_installed = {
 					"bash",
 					"html",
@@ -33,13 +34,13 @@ return {
 					"python",
 					"query",
 					"regex",
-					"rust",
 					"tsx",
 					"typescript",
 					"vim",
 					"vimdoc",
 					"yaml",
 				},
+				sync_install = false,
 				highlight = { enable = true },
 				indent = { enable = true, disable = { "python" } },
 				incremental_selection = {
@@ -87,7 +88,7 @@ return {
 					swap = {
 						enable = true,
 						swap_next = swap_next,
-						swap_previous = swap_previous
+						swap_previous = swap_prev
 					},
 				},
 			}
