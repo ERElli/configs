@@ -24,7 +24,7 @@ multi_line = True
 # If multi_line_mode is set to "safe", in multi-line mode, [Enter] will always
 # insert a newline, and [Esc] [Enter] or [Alt]-[Enter] must be used to execute
 # a command.
-multi_line_mode = psql
+multi_line_mode = safe
 
 # Destructive warning will alert you before executing a sql statement
 # that may cause harm to the database such as "drop table", "drop database",
@@ -125,7 +125,7 @@ show_bottom_toolbar = True
 # sql-update-1, sql-update-2 (formatter with sql-* prefix can format query
 # output to executable insertion or updating sql).
 # Recommended: psql, fancy_grid and grid.
-table_format = psql
+table_format = fancy_grid
 
 # Syntax Style. Possible values: manni, igor, xcode, vim, autumn, vs, rrt,
 # native, perldoc, borland, tango, emacs, friendly, monokai, paraiso-dark,
@@ -136,7 +136,7 @@ syntax_style = default
 # When Vi mode is enabled you can use modal editing features offered by Vi in the REPL.
 # When Vi mode is disabled emacs keybindings such as Ctrl-A for home and Ctrl-E
 # for end are available in the REPL.
-vi = False
+vi = True
 
 # Error handling
 # When one of multiple SQL statements causes an error, choose to either
