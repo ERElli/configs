@@ -67,6 +67,8 @@ alias gsta='git stash'
 alias gstap='git stash push -u -m'
 
 # Github cli aliases
+alias ghps='gh pr status'
+
 alias ginv="gh search prs \
 	--involves @me \
 	--state open \
