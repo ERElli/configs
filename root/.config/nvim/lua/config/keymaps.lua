@@ -12,6 +12,7 @@ keymap("n", "g;", "g;zvzz")
 
 -- Better escape using jk in insert and terminal mode
 keymap("i", "jk", "<ESC>")
+keymap("v", "jk", "<ESC>")
 keymap("t", "jk", "<C-\\><C-n>")
 keymap("t", "<C-h>", "<C-\\><C-n><C-w>h")
 keymap("t", "<C-j>", "<C-\\><C-n><C-w>j")
@@ -29,6 +30,9 @@ keymap("v", ">", ">gv")
 
 -- Paste over currently selected text without yanking it
 keymap("v", "p", '"_dP')
+
+-- throw away selected text
+keymap("v", "x", '"_x')
 
 -- Move Lines
 keymap("n", "<A-j>", ":m .+1<CR>==")
