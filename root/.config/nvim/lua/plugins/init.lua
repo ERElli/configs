@@ -1,6 +1,13 @@
 return {
 	"nvim-lua/plenary.nvim",
 	{
+		"karb94/neoscroll.nvim",
+		event = "VeryLazy",
+		config = function ()
+			require('neoscroll').setup({})
+		end
+	},
+	{
 		"kylechui/nvim-surround",
 		version = "*",
 		event = "VeryLazy",
