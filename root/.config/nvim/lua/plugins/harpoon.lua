@@ -10,7 +10,7 @@ return {
 	end,
 	keys = {
 		{
-			"<leader>ha",
+			"<leader>hl",
 			function()
 				local harpoon = require("harpoon")
 				harpoon.ui:toggle_quick_menu(harpoon:list())
@@ -20,7 +20,7 @@ return {
 		{
 			"<leader>hm",
 			function()
-				require("harpoon"):list():append()
+				require("harpoon"):list():add()
 			end,
 			desc = "Mark file with harpoon",
 		},
