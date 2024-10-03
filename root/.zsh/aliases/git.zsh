@@ -80,7 +80,18 @@ alias ginv="gh search prs \
 
 {{range .}}{{color \"78\" (hyperlink .url (printf \"#%v\" .number))}}{{\"\t\"}}{{truncate 15 .author.login}}{{\"\t\"}}{{color \"blue\" (truncate 30 .repository.name)}}{{\"\t\t\"}}{{truncate 50 .title}}{{\"\n\"}}{{end}}'
 "
+alias gmen="gh search prs \
+	--mentions @me \
+    --archived=false \
+	--state open \
+	--order desc \
+	--sort created \
+	--json url,number,author,repository,title,updatedAt \
+	--template '
+{{color \"magenta+bu\" \"PULL REQUESTS IM MENTIONED IN\"}}
 
+{{range .}}{{color \"78\" (hyperlink .url (printf \"#%v\" .number))}}{{\"\t\"}}{{truncate 15 .author.login}}{{\"\t\"}}{{color \"blue\" (truncate 30 .repository.name)}}{{\"\t\t\"}}{{truncate 50 .title}}{{\"\n\"}}{{end}}'
+"
 alias gpr="gh search prs \
 	--author @me \
 	--state open \
