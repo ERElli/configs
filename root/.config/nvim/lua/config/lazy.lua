@@ -15,7 +15,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins", {
 	defaults = { lazy = true, version = nil },
 	install = { missing = true, colorscheme = { "catppuccin", "poimandres", "tokyonight", "gruvbox" } },
-	checker = { enabled = true },
+	checker = { enabled = true, frequency = 86400 },
 })
 
 vim.keymap.set("n", "<leader>z", "<cmd>:Lazy<cr>", { desc = "Plugin Manager" })
