@@ -10,7 +10,7 @@ return {
 			follow_symlink = false,
 		})
 
-		vim.keymap.set("n", "<leader>gd", "<cmd>Telescope dir live_grep<CR>", { noremap = true, silent = true})
-		vim.keymap.set("n", "<leader>fd", "<cmd>Telescope dir find_files<CR>", { noremap = true, silent = true})
+		vim.keymap.set("n", "<leader>gid", "<cmd>Telescope dir live_grep<CR>", { noremap = true, silent = true})
+		vim.keymap.set("n", "<leader>fid", "<cmd>Telescope dir find_files<CR>", { noremap = true, silent = true})
 	end,
 }
