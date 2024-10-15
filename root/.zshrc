@@ -14,6 +14,8 @@ fi
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 export CODE_DIR='~/code'
+# export OBSIDIAN_VAULT="~/Library/CloudStorage/ProtonDrive-me@ericelli.com-folder/Obsidian_Vaults/Personal"
+export OBSIDIAN_VAULT="/Users/eric/Library/CloudStorage/ProtonDrive-me@ericelli.com-folder/Obsidian_Vaults/Personal"
 
 typeset +x BLN_PATH_TO_OPS='~/code/bln-ops-plan-state'
 
