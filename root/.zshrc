@@ -14,8 +14,7 @@ fi
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 export CODE_DIR='~/code'
-# export OBSIDIAN_VAULT="~/Library/CloudStorage/ProtonDrive-me@ericelli.com-folder/Obsidian_Vaults/Personal"
-export OBSIDIAN_VAULT="/Users/eric/Library/CloudStorage/ProtonDrive-me@ericelli.com-folder/Obsidian_Vaults/Personal"
+export OBSIDIAN_VAULT=~/Library/CloudStorage/ProtonDrive-me@ericelli.com-folder/Obsidian_Vaults/Personal
 
 typeset +x BLN_PATH_TO_OPS='~/code/bln-ops-plan-state'
 
@@ -30,7 +29,6 @@ source ~/.zsh/plugins/zsh-z/zsh-z.plugin.zsh
 for alias_files in ~/.zsh/aliases/*.zsh; do source $alias_files; done
 
 #source ~/.zsh/scripts/generate_url.sh
-
 export PATH="$HOME/.zsh/scripts:$PATH"
 
 eval $(thefuck --alias)

@@ -18,35 +18,57 @@ return {
 		dependencies = {
 			-- Required.
 			"nvim-lua/plenary.nvim",
-			-- see below for full list of optional dependencies 👇
+			-- Optional
+			"nvim-telescope/telescope.nvim",
+			"nvim-treesitter/nvim-treesitter",
+
 		},
 		opts = {
+			completion = {
+				nvim_cmp = true,
+				min_chars = 2,
+			},
+			mappings = {
+				["gf"] = {
+					action = function()
+						return require("obsidian").util.gf_passthrough()
+					end
+				},
+			},
 			workspaces = {
 				{
 					name = "personal",
 					path = "~/Library/CloudStorage/ProtonDrive-me@ericelli.com-folder/Obsidian_Vaults/Personal",
 				}
-				-- {
-				-- 	name = "work",
-				-- 	path = "~/Library/CloudStorage/ProtonDrive-me@ericelli.com-folder/Obsidian_Vaults/Work",
-				-- },
 			},
 			templates = {
 				subdir = "Templates",
-				date_format = "%YYYY-%MM-%DD",
-    			time_format = "%HH:%mm",
-			}
+				date_format = "%Y-%m-%d",
+				time_format = "%H:%M",
+				substitutions = {
+					noteId = function()
+						return os.date("%Y%m%d%H%M")
+					end
+				}
+			},
+			ui = { enabled = false },
 		},
 		keys = {
 			{
 				"<leader>oo",
 				"<cmd>cd" .. vim.fn.expand "~" .. "/Library/CloudStorage/ProtonDrive-me@ericelli.com-folder/Obsidian_Vaults<cr><cmd>pwd<cr>",
 				desc="Navigate to Obsidian Vaults"
+			},
+			{
+				"<leader>ot",
+				"<cmd>ObsidianTemplate Note<cr>",
+				desc="Add Note template to a note"
+			},
+			{
+				"<leader>oft",
+				"<cmd>s/# \\([^-_]\\+\\(-[^-_]\\+\\)*\\)_[0-9]\\+/# \\1/g | s/-/ /g<cr>",
+				desc="Reformat obsidian note title"
 			}
-		},
-		completion = {
-			nvim_cmp = true,
-			min_chars = 2,
 		},
 	}
 }
