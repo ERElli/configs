@@ -1,5 +1,14 @@
 return {
 	{
+		"folke/noice.nvim",
+		event = "VeryLazy",
+		opts = {},
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+			"rcarriga/nvim-notify",
+		},
+	},
+	{
 		"lukas-reineke/indent-blankline.nvim",
 		event = { "BufReadPost", "BufNewFile" },
 		opts = {
