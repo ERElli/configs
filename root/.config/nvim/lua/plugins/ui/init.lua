@@ -7,6 +7,13 @@ return {
 			"MunifTanjim/nui.nvim",
 			"rcarriga/nvim-notify",
 		},
+		keys={
+			{
+				"<leader>nd",
+				"<cmd>Noice dismiss<cr>",
+				desc="Dismiss Noice notifications",
+			}
+		}
 	},
 	{
 		"lukas-reineke/indent-blankline.nvim",
