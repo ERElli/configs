@@ -55,3 +55,9 @@ vim.filetype.add({
 		['docker-compose.yaml'] = 'yaml.docker-compose'
 	}
 })
+
+vim.filetype.add({
+	pattern = {
+		[".*/templates/.*%.yaml"] = "helm",
+	},
+})

@@ -143,6 +143,7 @@ return { -- LSP Configuration & Plugins
 			},
 			dockerls = {},
 			graphql = {},
+			helm_ls = {},
 			jsonls = {},
 			lua_ls = {
 				-- cmd = {...},
