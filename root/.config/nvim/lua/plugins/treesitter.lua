@@ -93,6 +93,12 @@ return {
 				},
 			}
 		end,
-		},
-	}
+	},
+	{
+		"HiPhish/rainbow-delimiters.nvim",
+		event = "BufReadPost",
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+		opts = {}
+	},
+}
 
