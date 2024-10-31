@@ -4,8 +4,11 @@ return {
 	opts = function()
 		local opts = {
 			attach_mode = "global",
-			backends = { "lsp", "treesitter", "markdown", "man" },
 			show_guides = true,
+			backends = { "lsp", "treesitter", "markdown", "man" },
+			manage_folds = true,
+			link_folds_to_tree = true,
+			link_tree_to_folds = true,
 			layout = {
 				resize_to_content = false,
 				win_opts = {
