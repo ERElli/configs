@@ -1,7 +1,10 @@
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
-		dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
+		dependencies = {
+			"HiPhish/rainbow-delimiters.nvim",
+			"nvim-treesitter/nvim-treesitter-textobjects"
+		},
 		build = ":TSUpdate",
 		event = "BufReadPost",
 		config = function()
@@ -93,12 +96,6 @@ return {
 				},
 			}
 		end,
-	},
-	{
-		"HiPhish/rainbow-delimiters.nvim",
-		event = "BufReadPost",
-		dependencies = { "nvim-treesitter/nvim-treesitter" },
-		opts = {}
 	},
 }
 
