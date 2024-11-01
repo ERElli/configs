@@ -7,6 +7,21 @@ return {
 		"nvim-tree/nvim-web-devicons",
 		"MunifTanjim/nui.nvim",
 	},
+	opts = function()
+		return {
+			event_handlers = {
+				{
+					event = "neo_tree_buffer_enter",
+					handler = function()
+						vim.opt_local.relativenumber = true
+					end,
+				}
+			},
+			window = {
+				auto_expand_width = true,
+			}
+		}
+	end,
 	keys = {
 		{
 			"<leader>be",
