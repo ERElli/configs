@@ -17,3 +17,15 @@ vim.api.nvim_create_autocmd('FileType', {
 		vim.bo[ev.buf].commentstring = '-- %s'
 	end,
 })
+
+vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+	pattern = '*.md',
+	desc = 'Set conceal level to 2 for Obsidian markdown files',
+	group = vim.api.nvim_create_augroup('obsidian-conceal-level', {clear = true}),
+	callback = function()
+		local filepath = vim.fn.expand("%:p")
+		if filepath:match("^/Users/ericelli/Library/CloudStorage/ProtonDrive%-me@ericelli%.com%-folder/Obsidian_Vaults.*") then
+			vim.opt_local.conceallevel = 2
+		end
+	end,
+})
