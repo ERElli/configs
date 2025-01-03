@@ -16,6 +16,19 @@ return {
 		end,
 	},
 	{
+		'akinsho/toggleterm.nvim',
+		version = "*",
+		config = true,
+		keys = {
+			{
+				"<leader>tt",
+				"<cmd>ToggleTerm direction='float'<cr>",
+				desc = "float terminal"
+			}
+
+		}
+	},
+	{
 		"pmizio/typescript-tools.nvim",
 		dependencies = {"nvim-lua/plenary.nvim", "neovim/nvim-lspconfig"},
 		opts = {}
