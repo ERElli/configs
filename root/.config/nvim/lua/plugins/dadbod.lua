@@ -15,9 +15,9 @@ return {
 	end,
 	keys = {
 		{
-			'<leader>db',
-			'<cmd>DBUI<cr><c-w>o',
-			desc='Open dadbod UI'
-		}
+			'<leader>dbt',
+			'<cmd>tabnew<cr><cmd>DBUI<cr>',
+			desc='Open [d]ad[b]od-ui in a new [t]ab'
+		},
 	}
 }
