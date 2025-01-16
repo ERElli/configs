@@ -10,6 +10,9 @@ return {
 	opts = function()
 		return {
 			filesystem = {
+				filtered_items = {
+					visible = true,
+				},
 				components = {
 					name = function(config, node, state)
 						local components = require('neo-tree.sources.common.components')
@@ -20,6 +23,12 @@ return {
 						return name
 					end
 				}
+			},
+			default_component_configs = {
+				file_size = {enabled = false},
+				type = {enabled = false},
+				created = {enabled = false},
+				last_modified = {enabled = false}
 			},
 			event_handlers = {
 				{
