@@ -62,7 +62,7 @@ return {
 		{
 			"<leader>fr",
 			function()
-				require("neo-tree.command").execute({ dir = vim.loop.cwd(), position = 'right', toggle = true, reveal = true })
+				require("neo-tree.command").execute({ dir = vim.loop.cwd(), position = 'right', toggle = false, reveal = true })
 			end,
 			desc = "Open NeoTree with focus on current file"
 		},
