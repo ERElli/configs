@@ -138,6 +138,10 @@ return { -- LSP Configuration & Plugins
 			-- But for many setups, the LSP (`tsserver`) will work just fine
 			-- tsserver = {},
 			--
+			beancount = {},
+			bashls = {
+				filetypes = {"zsh", "sh"},
+			},
 			docker_compose_language_service = {
 				filetypes = {"yaml.docker-compose"},
 			},

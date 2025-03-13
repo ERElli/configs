@@ -29,6 +29,9 @@ return {
 				ensure_installed = {
 					"bash",
 					"html",
+					"dockerfile",
+					"graphql",
+					"gitignore",
 					"javascript",
 					"json",
 					"lua",
