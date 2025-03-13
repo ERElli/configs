@@ -6,5 +6,27 @@ return {
 		"SmiteshP/nvim-navic",
 		"nvim-tree/nvim-web-devicons",
 	},
-	config = true,
+	config = function()
+		require("barbecue").setup({})
+		local barbecue_fugitive = vim.api.nvim_create_augroup('BarbecueFugitive', {clear=true})
+
+		vim.api.nvim_create_autocmd('FileType', {
+			group = barbecue_fugitive,
+			pattern = 'fugitiveblame',
+			callback = function()
+				require('barbecue.ui').toggle(false)
+			end
+		})
+
+		vim.api.nvim_create_autocmd('BufLeave', {
+			group = barbecue_fugitive,
+			callback = function()
+				if vim.bo.filetype == 'fugitiveblame' then
+					vim.defer_fn(function()
+						require('barbecue.ui').toggle(true)
+						end, 10)
+				end
+			end
+		})
+	end,
 }
