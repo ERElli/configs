@@ -13,6 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- lazy.nvim config
 require("lazy").setup("plugins", {
+	change_detection = { enabled = false },
 	defaults = { lazy = true, version = nil },
 	install = { missing = true, colorscheme = { "catppuccin", "poimandres", "tokyonight", "gruvbox" } },
 	checker = { enabled = true, frequency = 86400 },
