@@ -15,7 +15,52 @@ return {
 		{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_fond },
 	},
 	config = function()
+		local telescope = require('telescope')
+		local actions = require('telescope.actions')
+		local action_state = require('telescope.actions.state')
+
+		local delete_buffer = function(prompt_bufnr)
+			local current_picker = action_state.get_current_picker(prompt_bufnr)
+			local multi_selections = current_picker:get_multi_selection()
+
+			if next(multi_selections) == nil then
+				actions.select_default(prompt_bufnr)
+				vim.cmd('bdelete')
+			else
+				actions.close(prompt_bufnr)
+				for _, selection in ipairs(multi_selections) do
+					vim.api.nvim_buf_delete(selection.bufnr, {force = false})
+				end
+			end
+		end
+
+		
 		require("telescope").setup({
+			defaults = {
+				mappings = {
+					i = {
+						["<C-d>"] = delete_buffer,
+					},
+					n = {
+						["dd"] = delete_buffer,
+						["<Tab>"] = actions.toggle_selection,
+					}
+				},
+			},
+			pickers = {
+				buffers = {
+					sort_lastused = true,
+					sort_mru = true,
+					mappings = {
+						i = {
+							["<C-d>"] = delete_buffer,
+						},
+						n = {
+							["dd"] = delete_buffer,
+						}
+					}
+				}
+			},
 			extensions = {
 				["ui-select"] = {
 					require("telescope.themes").get_dropdown(),
