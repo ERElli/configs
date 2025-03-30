@@ -138,7 +138,9 @@ return { -- LSP Configuration & Plugins
 			-- But for many setups, the LSP (`tsserver`) will work just fine
 			-- tsserver = {},
 			--
-			beancount = {},
+			beancount = {
+				journal_file = "~/Code/Beancount/main.beancount",
+			},
 			bashls = {
 				filetypes = {"zsh", "sh"},
 			},
@@ -163,6 +165,7 @@ return { -- LSP Configuration & Plugins
 					},
 				},
 			},
+			ruff = {},
 			tsserver = {},
 			yamlls = {
 				filetypes = {"yaml", "yaml.gitlab"}
