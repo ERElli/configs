@@ -8,7 +8,16 @@ return {
 				"read",
 				"op://Personal/OpenAI API Key/credential",
 			},
-			log_sensitive = false,
+			agents = {
+				{
+					name = "Experienced Dev GTP-4o",
+					chat = true,
+					command = false,
+					model = { model = "gpt-4o", temperature=0.2, top_p=0.1 },
+					system_prompt = "You are a senior web developer with extensive experience in Typescript and consume lots of content from large Typescript content creators like Matt Pocock and have taken Matt's courses from Total Typescript",
+				},
+			},
+			log_sensitive = false
 		}
 		require("gp").setup(conf)
 	end,
