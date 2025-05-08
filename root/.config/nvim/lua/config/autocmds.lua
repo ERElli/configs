@@ -18,6 +18,15 @@ vim.api.nvim_create_autocmd('FileType', {
 	end,
 })
 
+vim.api.nvim_create_autocmd('FileType', {
+	pattern = 'javascript',
+	desc = 'Detect js files and set the commentstring',
+	group = vim.api.nvim_create_augroup('js-comment-string', {clear = true}),
+	callback = function(ev)
+		vim.bo[ev.buf].commentstring = '// %s'
+	end,
+})
+
 vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
 	pattern = '*.md',
 	desc = 'Set conceal level to 2 for Obsidian markdown files',
