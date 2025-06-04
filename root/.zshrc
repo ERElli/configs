@@ -1,4 +1,4 @@
-eval "$(fnm env --use-on-cd --version-file-strategy=recursive)"
+eval "$(fnm env --use-on-cd --version-file-strategy=recursive --log-level=quiet)"
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -47,3 +47,4 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
+eval "$(direnv hook zsh)"
