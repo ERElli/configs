@@ -8,12 +8,12 @@ alias dlf='docker logs -f'
 alias reload='exec zsh'
 
 function zc() {
-  # Todo: add --dry-run flag
-  cur_dir=$(pwd)
-  z $1
-  echo "opening $(pwd)..."
-  code .
-  cd $cur_dir
+	# Todo: add --dry-run flag
+	cur_dir=$(pwd)
+	z $1
+	echo "opening $(pwd)..."
+	code .
+	cd $cur_dir
 }
 
 # Navigation

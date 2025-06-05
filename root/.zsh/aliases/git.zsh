@@ -102,7 +102,6 @@ alias gpr="gh search prs \
 {{color \"magenta+bu\" \"MY PULL REQUESTS\"}}
 {{range .}}{{color \"78\" (hyperlink .url (printf \"#%v\" .number))}}{{\"\t\"}}{{color \"blue\" .repository.name}}{{\"\t\t\"}}{{.title}}{{\"\n\"}}{{end}}'
 "
-
 alias grr="gh search prs \
 	--review-requested @me \
 	--state open \
