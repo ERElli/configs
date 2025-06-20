@@ -75,6 +75,18 @@ return {
 		vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[s]earch [h]elp" })
 		vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "[s]earch [k]eymaps" })
 		vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[s]earch [f]iles" })
+		vim.keymap.set("n", "<leader>saf", function()
+			builtin.find_files({hidden=true})
+		end, { desc = "[s]earch [f]iles (hidden)" })
+		vim.keymap.set("n", "<leader>sag", function()
+			builtin.grep_string({
+				additional_args = function()
+					return {
+						"--hidden", "--glob", "!.git/*",
+					}
+				end,
+			})
+		end, { desc = "[s]earch by [g]rep (hidden)" })
 		vim.keymap.set("n", "<leader>ss", builtin.builtin, { desc = "[s]earch [s]elect telescope" })
 		vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[s]earch current [w]ord" })
 		vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[s]earch by [g]rep" })
