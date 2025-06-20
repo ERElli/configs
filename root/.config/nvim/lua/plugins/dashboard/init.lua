@@ -3,12 +3,19 @@ return {
 	event = "VimEnter",
 	lazy = false,
 	enabled = true,
-	dependencies = { "nvim-telescope/telescope.nvim" },
+	dependencies = { 
+		"nvim-telescope/telescope.nvim"
+
+	},
 	config = function()
 		local dashboard = require "alpha.themes.dashboard"
+		local icons = require "config.icons"
 		dashboard.section.header.val = require("plugins.dashboard.logos")["random"]
 		dashboard.section.buttons.val = {
-			dashboard.button("f", "  " .. " Find file", ":Telescope find_files<CR>"),
+			dashboard.button("f", icons.ui.Search .. "    Find file", ":Telescope find_files<CR>"),
+			dashboard.button("gd", icons.ui.Search .. "    Grep in directory", ":Telescope dir live_grep<CR>"),
+			dashboard.button("t", icons.ui.Stacks .. "    Neotree", ":Neotree toggle position=right<CR>"),
+			dashboard.button("db", icons.kind.Database .. "    Dadbod-UI", ":DBUI<CR>:only<CR>"),
 		}
 		for _, button in ipairs(dashboard.section.buttons.val) do
 			button.opts.hl = "AlphaButtons"
