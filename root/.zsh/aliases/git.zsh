@@ -65,6 +65,8 @@ alias gst='git status'
 alias gsts='git status -s'
 alias gsta='git stash'
 alias gstap='git stash push -u -m'
+alias gwl='git worktree list'
+alias gwly='git worktree list | yank'
 
 # Github cli aliases
 alias ghps='gh pr status'
