@@ -1,5 +1,14 @@
 return {
 	{
+		"rose-pine/neovim",
+		lazy = false,
+		name = "rose-pine",
+		priority = 1000,
+		config = function()
+			vim.cmd.colorscheme("rose-pine-moon")
+		end
+	},
+	{
 		"catppuccin/nvim",
 		lazy = false,
 		name = "catppuccin",
@@ -12,7 +21,6 @@ return {
 					light = "frappe",
 				},
 			})
-			vim.cmd.colorscheme("catppuccin")
 		end,
 	},
 	{
@@ -23,8 +31,5 @@ return {
 		config = function()
 			require('poimandres').setup({})
 		end,
-		init = function()
-			vim.cmd.colorscheme("poimandres")
-		end,
-	}
+	},
 }
