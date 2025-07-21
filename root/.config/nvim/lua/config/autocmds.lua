@@ -27,6 +27,18 @@ vim.api.nvim_create_autocmd('FileType', {
 	end,
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "sql",
+	desc = 'Detect sql files and set indentation',
+	group = vim.api.nvim_create_augroup('sql-indentation-settings', {clear = true}),
+	callback = function()
+		vim.bo.expandtab = false  -- Use tabs, not spaces
+		vim.bo.shiftwidth = 4     -- Indent width
+		vim.bo.tabstop = 4        -- Display width of tab character
+		vim.bo.softtabstop = 4    -- Insert/delete tab stops
+	end,
+})
+
 vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
 	pattern = '*.md',
 	desc = 'Set conceal level to 2 for Obsidian markdown files',
