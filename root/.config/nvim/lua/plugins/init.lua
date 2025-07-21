@@ -21,16 +21,20 @@ return {
 		config = true,
 		keys = {
 			{
-				"<leader>tt",
+				"<leader>tf",
 				"<cmd>ToggleTerm direction='float'<cr>",
 				desc = "float terminal"
+			},
+			{
+				"<leader>tt",
+				"<cmd>ToggleTerm direction='horizontal'<cr>",
+				desc = "terminal"
 			}
-
 		}
 	},
 	{
 		"pmizio/typescript-tools.nvim",
 		dependencies = {"nvim-lua/plenary.nvim", "neovim/nvim-lspconfig"},
 		opts = {}
-	}
+	},
 }
