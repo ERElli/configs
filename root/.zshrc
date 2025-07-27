@@ -1,4 +1,6 @@
-eval "$(fnm env --use-on-cd --version-file-strategy=recursive --log-level=quiet)"
+if command -v fnm >/dev/null 2>&1; then
+    eval "$(fnm env --use-on-cd --version-file-strategy=recursive --log-level=quiet)"
+fi
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -34,7 +36,9 @@ for alias_files in ~/.zsh/aliases/*.zsh; do source $alias_files; done
 #source ~/.zsh/scripts/generate_url.sh
 export PATH="$HOME/.zsh/scripts:$PATH"
 
-eval $(thefuck --alias)
+if command -v thefuck >/dev/null 2>&1; then
+    eval $(thefuck --alias)
+fi
 
 source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh # per the docs, this must be at the end of this file
 
@@ -50,4 +54,6 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
-eval "$(direnv hook zsh)"
+if command -v direnv >/dev/null 2>&1; then
+    eval "$(direnv hook zsh)"
+fi
