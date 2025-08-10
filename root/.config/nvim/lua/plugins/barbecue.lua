@@ -10,11 +10,14 @@ return {
 		require("barbecue").setup({})
 		local barbecue_fugitive = vim.api.nvim_create_augroup('BarbecueFugitive', {clear=true})
 
-		vim.api.nvim_create_autocmd('FileType', {
+		vim.api.nvim_create_autocmd('BufEnter', {
 			group = barbecue_fugitive,
-			pattern = 'fugitiveblame',
 			callback = function()
-				require('barbecue.ui').toggle(false)
+				if vim.bo.filetype == 'fugitiveblame' then
+					vim.defer_fn(function()
+						require('barbecue.ui').toggle(false)
+					end, 10)
+				end
 			end
 		})
 
