@@ -10,6 +10,15 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 vim.api.nvim_create_autocmd('FileType', {
+	pattern = { 'sh', 'zsh' },
+	desc = 'Detect bash files and set indentation settings',
+	group = vim.api.nvim_create_augroup('bash-indentation', {clear = true}),
+	callback = function(ev)
+		vim.bo.expandtab = false
+	end,
+})
+
+vim.api.nvim_create_autocmd('FileType', {
 	pattern = 'sql',
 	desc = 'Detect sql files and set the commentstring',
 	group = vim.api.nvim_create_augroup('sql-comment-string', {clear = true}),
