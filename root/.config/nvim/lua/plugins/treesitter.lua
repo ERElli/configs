@@ -100,5 +100,18 @@ return {
 			}
 		end,
 	},
+	{
+		"nvim-treesitter/nvim-treesitter-context",
+		event = "BufReadPost",
+		opts = {
+			enable = true,
+			max_lines = 0,
+			mode = "cursor",
+			separator = " ",
+		},
+		config = function(_, opts)
+			require("treesitter-context").setup(opts)
+		end,
+	},
 }
 

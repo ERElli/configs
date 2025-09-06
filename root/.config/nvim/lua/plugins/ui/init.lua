@@ -1,25 +1,25 @@
 return {
-	{
-		"folke/noice.nvim",
-		event = "VeryLazy",
-		opts = {
-			override = {
-				["vim.ui.input"] = false,
-				["vim.ui.select"] = false,
-			},
-		},
-		dependencies = {
-			"MunifTanjim/nui.nvim",
-			"rcarriga/nvim-notify",
-		},
-		keys={
-			{
-				"<leader>nd",
-				"<cmd>Noice dismiss<cr>",
-				desc="Dismiss Noice notifications",
-			}
-		}
-	},
+	-- {
+	-- 	"folke/noice.nvim",
+	-- 	event = "VeryLazy",
+	-- 	opts = {
+	-- 		override = {
+	-- 			["vim.ui.input"] = false,
+	-- 			["vim.ui.select"] = false,
+	-- 		},
+	-- 	},
+	-- 	dependencies = {
+	-- 		"MunifTanjim/nui.nvim",
+	-- 		"rcarriga/nvim-notify",
+	-- 	},
+	-- 	keys={
+	-- 		{
+	-- 			"<leader>nd",
+	-- 			"<cmd>Noice dismiss<cr>",
+	-- 			desc="Dismiss Noice notifications",
+	-- 		}
+	-- 	}
+	-- },
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		event = { "BufReadPost", "BufNewFile" },
