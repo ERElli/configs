@@ -41,7 +41,9 @@ return {
 			},
 			window = {
 				auto_expand_width = true,
-			}
+			},
+			enable_git_status = true,
+			git_base = 'origin/master'
 		}
 	end,
 	keys = {
