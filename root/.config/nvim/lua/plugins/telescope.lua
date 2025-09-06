@@ -76,7 +76,7 @@ return {
 		vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "[s]earch [k]eymaps" })
 		vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[s]earch [f]iles" })
 		vim.keymap.set("n", "<leader>saf", function()
-			builtin.find_files({hidden=true})
+			builtin.find_files({hidden=true, no_ignore=true})
 		end, { desc = "[s]earch [f]iles (hidden)" })
 		vim.keymap.set("n", "<leader>sag", function()
 			builtin.grep_string({
