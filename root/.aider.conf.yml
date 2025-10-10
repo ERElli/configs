@@ -96,7 +96,7 @@
 #edit-format: xxx
 
 ## Use architect edit format for the main chat
-architect: true
+#architect: true
 
 ## Enable/disable automatic acceptance of architect changes (default: True)
 auto-accept-architect: false
