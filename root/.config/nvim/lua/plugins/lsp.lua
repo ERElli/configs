@@ -21,6 +21,19 @@ return { -- LSP Configuration & Plugins
 		--    That is to say, every time a new file is opened that is associated with
 		--    an lsp (for example, opening `main.rs` is associated with `rust_analyzer`) this
 		--    function will be executed to configure the current buffer
+
+		vim.diagnostic.config({
+			signs = {
+				text = {
+					[vim.diagnostic.severity.ERROR] = "✘",
+					[vim.diagnostic.severity.WARN] = "▲",
+					[vim.diagnostic.severity.INFO] = "⚠",
+					[vim.diagnostic.severity.HINT] = "⚑",
+				},
+			},
+			severity_sort = true, -- This ensures highest severity shows first
+			update_in_insert = false,
+		})
 		vim.api.nvim_create_autocmd('LspAttach', {
 			group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
 			callback = function(event)
@@ -139,7 +152,10 @@ return { -- LSP Configuration & Plugins
 			-- tsserver = {},
 			--
 			beancount = {
-				journal_file = "~/Code/Beancount/main.beancount",
+				filetypes = {"beancount", "bean"},
+				init_options = {
+					journal_file = "/Users/eric/Code/Beancount/main.beancount",
+				},
 			},
 			bashls = {
 				filetypes = {"zsh", "sh"},
@@ -171,7 +187,7 @@ return { -- LSP Configuration & Plugins
 				filetypes = {"yaml", "yaml.gitlab"}
 			}
 		}
-
+		print(vim.inspect(servers.beancount))
 		-- Ensure the servers and tools above are installed
 		--  To check the current status of installed tools and/or manually install
 		--  other tools, you can run
@@ -185,13 +201,25 @@ return { -- LSP Configuration & Plugins
 		local ensure_installed = vim.tbl_keys(servers or {})
 		vim.list_extend(ensure_installed, {
 			'stylua', -- Used to format Lua code
+			'prettier', -- Used to format JS/TS/JSON/HTML/CSS/MD/YAML
 		})
 		require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
+		require('lspconfig').beancount.setup({
+			filetypes = {"beancount", "bean"},
+			init_options = {
+				journal_file = "/Users/eric/Code/Beancount/main.beancount",
+			},
+			capabilities = capabilities,
+		})
+
+		vim.notify("Setting up mason-lspconfig...")
 		require('mason-lspconfig').setup {
 			handlers = {
 				function(server_name)
 					local server = servers[server_name] or {}
+					vim.notify("server setup")
+					vim.notify(vim.inspect(servers))
 					-- This handles overriding only values explicitly passed
 					-- by the server configuration above. Useful when disabling
 					-- certain features of an LSP (for example, turning off formatting for tsserver)
@@ -200,5 +228,6 @@ return { -- LSP Configuration & Plugins
 				end,
 			},
 		}
+		vim.notify("Done setting up mason-lspconfig...")
 	end,
 }
