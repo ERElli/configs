@@ -34,16 +34,48 @@ return {
 			end
 		end
 
+		local open_multiple_buffers = function(prompt_bufnr)
+			local current_picker = action_state.get_current_picker(prompt_bufnr)
+			local multi_selections = current_picker:get_multi_selection()
+			
+			if next(multi_selections) == nil then
+				-- If no multi-selection, just open the current selection
+				actions.select_default(prompt_bufnr)
+			else
+				-- Close telescope first
+				actions.close(prompt_bufnr)
+				-- Open each selected file in a buffer and add to harpoon
+				for _, selection in ipairs(multi_selections) do
+					local filename = selection.path or selection.filename
+					vim.cmd('edit ' .. filename)
+					
+					-- Jump to the line if available (for grep results)
+					if selection.lnum then
+						vim.api.nvim_win_set_cursor(0, {selection.lnum, selection.col or 0})
+					end
+					
+					-- Add to harpoon2 list
+					if pcall(require, 'harpoon') then
+						local harpoon = require('harpoon')
+						harpoon:list():add()
+					end
+				end
+			end
+		end
+
 		
 		require("telescope").setup({
 			defaults = {
 				mappings = {
 					i = {
 						["<C-d>"] = delete_buffer,
+						["<C-o>"] = open_multiple_buffers,
 					},
 					n = {
 						["dd"] = delete_buffer,
 						["<Tab>"] = actions.toggle_selection,
+						["<CR>"] = open_multiple_buffers,
+						["o"] = open_multiple_buffers,
 					}
 				},
 			},
