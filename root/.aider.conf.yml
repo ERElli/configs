@@ -18,7 +18,7 @@
 # Main model:
 
 ## Specify the model to use for the main chat
-#model: xxx
+model: claude-sonnet-4-5
 
 ########################
 # API Keys and settings:
@@ -450,7 +450,7 @@ auto-commits: false
 #opus: false
 
 ## Use anthropic/claude-3-7-sonnet-20250219 model for the main chat (deprecated, use --model)
-#sonnet: false
+## sonnet: false
 
 ## Use claude-3-5-haiku-20241022 model for the main chat (deprecated, use --model)
 #haiku: false

@@ -7,11 +7,11 @@ return { -- LSP Configuration & Plugins
 		'WhoIsSethDaniel/mason-tool-installer.nvim',
 
 		-- Useful status updates for LSP.
-		{ 'j-hui/fidget.nvim', opts = {} },
+		{ 'j-hui/fidget.nvim',       opts = {} },
 
 		-- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
 		-- used for completion, annotations and signatures of Neovim apis
-		{ 'folke/neodev.nvim', opts = {} },
+		{ 'folke/neodev.nvim',       opts = {} },
 	},
 	config = function()
 		-- If you're wondering about lsp vs treesitter, you can check out the wonderfully
@@ -117,7 +117,7 @@ return { -- LSP Configuration & Plugins
 				if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
 					map('<leader>th', function()
 						vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-						end, '[T]oggle Inlay [H]ints')
+					end, '[T]oggle Inlay [H]ints')
 				end
 			end,
 		})
@@ -152,16 +152,16 @@ return { -- LSP Configuration & Plugins
 			-- tsserver = {},
 			--
 			beancount = {
-				filetypes = {"beancount", "bean"},
+				filetypes = { "beancount", "bean" },
 				init_options = {
 					journal_file = "/Users/eric/Code/Beancount/main.beancount",
 				},
 			},
 			bashls = {
-				filetypes = {"zsh", "sh"},
+				filetypes = { "zsh", "sh" },
 			},
 			docker_compose_language_service = {
-				filetypes = {"yaml.docker-compose"},
+				filetypes = { "yaml.docker-compose" },
 			},
 			dockerls = {},
 			graphql = {},
@@ -184,10 +184,9 @@ return { -- LSP Configuration & Plugins
 			ruff = {},
 			tsserver = {},
 			yamlls = {
-				filetypes = {"yaml", "yaml.gitlab"}
+				filetypes = { "yaml", "yaml.gitlab" }
 			}
 		}
-		print(vim.inspect(servers.beancount))
 		-- Ensure the servers and tools above are installed
 		--  To check the current status of installed tools and/or manually install
 		--  other tools, you can run
@@ -205,20 +204,20 @@ return { -- LSP Configuration & Plugins
 		})
 		require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
-		require('lspconfig').beancount.setup({
-			filetypes = {"beancount", "bean"},
-			init_options = {
-				journal_file = "/Users/eric/Code/Beancount/main.beancount",
-			},
-			capabilities = capabilities,
+		vim.lsp.config('beancount', {
+			setup = {
+				filetypes = { "beancount", "bean" },
+				init_options = {
+					journal_file = "/Users/eric/Code/Beancount/main.beancount",
+				},
+				capabilities = capabilities,
+			}
 		})
 
-		vim.notify("Setting up mason-lspconfig...")
 		require('mason-lspconfig').setup {
 			handlers = {
 				function(server_name)
 					local server = servers[server_name] or {}
-					vim.notify("server setup")
 					vim.notify(vim.inspect(servers))
 					-- This handles overriding only values explicitly passed
 					-- by the server configuration above. Useful when disabling
@@ -228,6 +227,5 @@ return { -- LSP Configuration & Plugins
 				end,
 			},
 		}
-		vim.notify("Done setting up mason-lspconfig...")
 	end,
 }

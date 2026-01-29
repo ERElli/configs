@@ -5,14 +5,14 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 	desc = 'Highlight when yanking (copying) text',
 	group = vim.api.nvim_create_augroup('highlight-yank', { clear = true }),
 	callback = function()
-		vim.highlight.on_yank({timeout = 250})
+		vim.highlight.on_yank({ timeout = 250 })
 	end,
 })
 
 vim.api.nvim_create_autocmd('FileType', {
 	pattern = { 'sh', 'zsh' },
 	desc = 'Detect bash files and set indentation settings',
-	group = vim.api.nvim_create_augroup('bash-indentation', {clear = true}),
+	group = vim.api.nvim_create_augroup('bash-indentation', { clear = true }),
 	callback = function(ev)
 		vim.bo.expandtab = false
 	end,
@@ -21,7 +21,7 @@ vim.api.nvim_create_autocmd('FileType', {
 vim.api.nvim_create_autocmd('FileType', {
 	pattern = 'sql',
 	desc = 'Detect sql files and set the commentstring',
-	group = vim.api.nvim_create_augroup('sql-comment-string', {clear = true}),
+	group = vim.api.nvim_create_augroup('sql-comment-string', { clear = true }),
 	callback = function(ev)
 		vim.bo[ev.buf].commentstring = '-- %s'
 	end,
@@ -30,7 +30,7 @@ vim.api.nvim_create_autocmd('FileType', {
 vim.api.nvim_create_autocmd('FileType', {
 	pattern = 'javascript',
 	desc = 'Detect js files and set the commentstring',
-	group = vim.api.nvim_create_augroup('js-comment-string', {clear = true}),
+	group = vim.api.nvim_create_augroup('js-comment-string', { clear = true }),
 	callback = function(ev)
 		vim.bo[ev.buf].commentstring = '// %s'
 	end,
@@ -39,19 +39,19 @@ vim.api.nvim_create_autocmd('FileType', {
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "sql",
 	desc = 'Detect sql files and set indentation',
-	group = vim.api.nvim_create_augroup('sql-indentation-settings', {clear = true}),
+	group = vim.api.nvim_create_augroup('sql-indentation-settings', { clear = true }),
 	callback = function()
-		vim.bo.expandtab = false  -- Use tabs, not spaces
-		vim.bo.shiftwidth = 4     -- Indent width
-		vim.bo.tabstop = 4        -- Display width of tab character
-		vim.bo.softtabstop = 4    -- Insert/delete tab stops
+		vim.bo.expandtab = false -- Use tabs, not spaces
+		vim.bo.shiftwidth = 4 -- Indent width
+		vim.bo.tabstop = 4 -- Display width of tab character
+		vim.bo.softtabstop = 4 -- Insert/delete tab stops
 	end,
 })
 
-vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	pattern = '*.md',
 	desc = 'Set conceal level to 2 for Obsidian markdown files',
-	group = vim.api.nvim_create_augroup('obsidian-conceal-level', {clear = true}),
+	group = vim.api.nvim_create_augroup('obsidian-conceal-level', { clear = true }),
 	callback = function()
 		local filepath = vim.fn.expand("%:p")
 		if filepath:match("^/Users/ericelli/Library/CloudStorage/ProtonDrive%-me@ericelli%.com%-folder/Obsidian_Vaults.*") then
