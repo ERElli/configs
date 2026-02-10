@@ -24,35 +24,39 @@ return {
 			desc = "Toggle format on save",
 		},
 	},
-	opts = {
-		formatters_by_ft = {
-			astro = { "prettier" },
-			javascript = { "prettier" },
-			typescript = { "prettier" },
-			javascriptreact = { "prettier" },
-			typescriptreact = { "prettier" },
-			json = { "prettier" },
-			html = { "prettier" },
-			css = { "prettier" },
-			scss = { "prettier" },
-			markdown = { "prettier" },
-			yaml = { "prettier" },
-		},
-		format_on_save = function(bufnr)
-			if vim.g.disable_autoformat then
-				return
-			end
+	config = function()
+		vim.g.disable_autoformat = true;
 
-			-- Disable format on save for specific filetypes or conditions
-			-- if vim.bo[bufnr].filetype == "some_filetype" then
-			--   return
-			-- end
+		require("conform").setup({
+			formatters_by_ft = {
+				astro = { "prettier" },
+				javascript = { "prettier" },
+				typescript = { "prettier" },
+				javascriptreact = { "prettier" },
+				typescriptreact = { "prettier" },
+				json = { "prettier" },
+				html = { "prettier" },
+				css = { "prettier" },
+				scss = { "prettier" },
+				markdown = { "prettier" },
+				yaml = { "prettier" },
+			},
+			format_on_save = function(bufnr)
+				if vim.g.disable_autoformat then
+					return
+				end
+
+				-- Disable format on save for specific filetypes or conditions
+				-- if vim.bo[bufnr].filetype == "some_filetype" then
+				--   return
+				-- end
 
 
-			return {
-				timeout_ms = 500,
-				lsp_fallback = true,
-			}
-		end,
-	},
+				return {
+					timeout_ms = 500,
+					lsp_fallback = true,
+				}
+			end,
+		})
+	end,
 }
