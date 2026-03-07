@@ -17,8 +17,6 @@ return {
 					statuscolumn = " ",
 				},
 			},
-			icons = icons,
-			filter_kind = filter_kind,
 			-- stylua: ignore
 			guides = {
 				mid_item   = "├╴",

@@ -182,7 +182,6 @@ return { -- LSP Configuration & Plugins
 				},
 			},
 			ruff = {},
-			tsserver = {},
 			yamlls = {
 				filetypes = { "yaml", "yaml.gitlab" }
 			}
@@ -218,7 +217,6 @@ return { -- LSP Configuration & Plugins
 			handlers = {
 				function(server_name)
 					local server = servers[server_name] or {}
-					vim.notify(vim.inspect(servers))
 					-- This handles overriding only values explicitly passed
 					-- by the server configuration above. Useful when disabling
 					-- certain features of an LSP (for example, turning off formatting for tsserver)

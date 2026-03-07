@@ -63,7 +63,7 @@ return {
 						enable = true,
 						lookahead = true,
 						keymaps = {
-							["aa"] = "@paramater.outer",
+							["aa"] = "@parameter.outer",
 							["ia"] = "@parameter.inner",
 							["af"] = "@function.outer",
 							["if"] = "@function.inner",
@@ -87,7 +87,7 @@ return {
 							["[["] = "@class.outer",
 						},
 						goto_previous_end = {
-							["[M"] = "@function.outer",
+							["[m"] = "@function.outer",
 							["[]"] = "@class.outer",
 						},
 					},
