@@ -9,6 +9,12 @@ function git_current_branch() {
     echo ${ref#refs/heads/}
 }
 
+
+function git_worktree_switcher() {
+  local dir
+  dir=$(git worktree list | fzf --height=40% --reverse | awk '{print $1}') && cd "$dir"
+}
+
 function grp() {
     starting_dir=$(pwd)
     branch_name=${2:-origin/master}
@@ -67,7 +73,7 @@ alias gsts='git status -s'
 alias gsta='git stash'
 alias gstap='git stash push -u -m'
 alias gwt='git worktree'
-
+alias gwsw='git_worktree_switcher'
 # Github cli aliases
 alias ghps='gh pr status'
 alias ghpcw='gh pr checks --fail-fast --watch'
