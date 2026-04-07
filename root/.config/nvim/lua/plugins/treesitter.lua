@@ -1,12 +1,14 @@
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
+		tag = "v0.10.0",
 		dependencies = {
 			"HiPhish/rainbow-delimiters.nvim",
 			"nvim-treesitter/nvim-treesitter-textobjects"
 		},
 		build = ":TSUpdate",
-		event = "BufReadPost",
+		event = { "BufReadPre", "BufNewFile" },
+		-- lazy = false,
 		config = function()
 			local swap_next, swap_prev = (function()
 				local swap_objects = {
@@ -24,9 +26,10 @@ return {
 				return n, p
 			end)()
 
-			require("nvim-treesitter.configs").setup {
-				auto_install = true,
-				ensure_installed = {
+			vim.g.skip_ts_context_commentstring_module = true
+
+			vim.g.nvim_tresitter = {
+					ensure_installed = {
 					"bash",
 					"html",
 					"dockerfile",
@@ -59,44 +62,45 @@ return {
 						node_decremental = "grm",
 					},
 				},
-				textobjects = {
-					select = {
-						enable = true,
-						lookahead = true,
-						keymaps = {
-							["aa"] = "@parameter.outer",
-							["ia"] = "@parameter.inner",
-							["af"] = "@function.outer",
-							["if"] = "@function.inner",
-							["ac"] = "@class.outer",
-							["ic"] = "@class.inner",
-						},
+			}
+
+			require("nvim-treesitter-textobjects").setup {
+				select = {
+					enable = true,
+					lookahead = true,
+					keymaps = {
+						["aa"] = "@parameter.outer",
+						["ia"] = "@parameter.inner",
+						["af"] = "@function.outer",
+						["if"] = "@function.inner",
+						["ac"] = "@class.outer",
+						["ic"] = "@class.inner",
 					},
-					move = {
-						enable = true,
-						set_jumps = true,
-						goto_next_start = {
-							["]m"] = "@function.outer",
-							["]]"] = "@class.outer",
-						},
-						goto_next_end = {
-							["]M"] = "@function.outer",
-							["]["] = "@class.outer",
-						},
-						goto_previous_start = {
-							["[M"] = "@function.outer",
-							["[["] = "@class.outer",
-						},
-						goto_previous_end = {
-							["[m"] = "@function.outer",
-							["[]"] = "@class.outer",
-						},
+				},
+				move = {
+					enable = true,
+					set_jumps = true,
+					goto_next_start = {
+						["]m"] = "@function.outer",
+						["]]"] = "@class.outer",
 					},
-					swap = {
-						enable = true,
-						swap_next = swap_next,
-						swap_previous = swap_prev
+					goto_next_end = {
+						["]M"] = "@function.outer",
+						["]["] = "@class.outer",
 					},
+					goto_previous_start = {
+						["[M"] = "@function.outer",
+						["[["] = "@class.outer",
+					},
+					goto_previous_end = {
+						["[m"] = "@function.outer",
+						["[]"] = "@class.outer",
+					},
+				},
+				swap = {
+					enable = true,
+					swap_next = swap_next,
+					swap_previous = swap_prev
 				},
 			}
 		end,
