@@ -42,6 +42,7 @@ for alias_files in ~/.zsh/aliases/*.zsh; do source $alias_files; done
 
 #source ~/.zsh/scripts/generate_url.sh
 export PATH="$HOME/.zsh/scripts:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/Library/pnpm/global/5/node_modules/@bluedrop-learning-networks/skillspass-dev-tools/bin/:$PATH"
 
 if command -v thefuck >/dev/null 2>&1; then
@@ -66,3 +67,9 @@ if command -v direnv >/dev/null 2>&1; then
     eval "$(direnv hook zsh)"
 fi
 
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+  autoload -Uz compinit
+  compinit
+fi
