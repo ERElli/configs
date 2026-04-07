@@ -225,5 +225,14 @@ return { -- LSP Configuration & Plugins
 				end,
 			},
 		}
+
+		-- tilt lsp: Tilt's built-in Starlark LSP server, knows all Tilt builtins
+		vim.lsp.config('tilt_ls', {
+			cmd = { 'tilt', 'lsp', 'start' },
+			filetypes = { 'starlark' },
+			root_markers = { 'Tiltfile', '.git' },
+			capabilities = capabilities,
+		})
+		vim.lsp.enable('tilt_ls')
 	end,
 }

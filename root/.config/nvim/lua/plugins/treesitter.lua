@@ -45,6 +45,7 @@ return {
 					"vim",
 					"vimdoc",
 					"yaml",
+					"starlark",
 				},
 				sync_install = false,
 				highlight = { enable = true },

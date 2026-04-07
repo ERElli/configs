@@ -61,3 +61,13 @@ vim.filetype.add({
 		[".*/templates/.*%.yaml"] = "helm",
 	},
 })
+
+vim.filetype.add({
+	filename = {
+		['Tiltfile'] = 'starlark',
+	},
+	extension = {
+		['star'] = 'starlark',
+		['Tiltfile'] = 'starlark',
+	},
+})
