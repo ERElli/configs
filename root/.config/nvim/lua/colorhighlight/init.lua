@@ -139,7 +139,7 @@ local DEBOUNCE_MS = 150
 
 local function debounced_highlight(buf)
 	if timers[buf] then timers[buf]:stop(); timers[buf]:close(); timers[buf] = nil end
-	local uv = vim.uv or vim.loop
+	local uv = vim.uv
 	local t = uv.new_timer()
 	timers[buf] = t
 	t:start(DEBOUNCE_MS, 0, vim.schedule_wrap(function()
