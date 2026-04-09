@@ -50,9 +50,13 @@ return {
 					"starlark",
 				},
 				sync_install = false,
-				highlight = { enable = true },
-				indent = { enable = true, disable = { "python" } },
 			}
+
+			vim.api.nvim_create_autocmd("FileType", {
+				callback = function(args)
+					pcall(vim.treesitter.start, args.buf)
+				end,
+			})
 
 			require("nvim-treesitter-textobjects").setup {
 				select = {
