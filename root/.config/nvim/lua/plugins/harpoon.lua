@@ -1,19 +1,33 @@
 return {
 	"ThePrimeagen/harpoon",
-	lazy = false,
 	branch = "harpoon2",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 	},
 	config = function()
-		local harpoon = require("harpoon");
-		harpoon:setup({})
-		vim.keymap.set("n", "<leader>hg", function() harpoon:list():select(1) end, {desc="Switch to first harpoon item"})
-		vim.keymap.set("n", "<leader>hh", function() harpoon:list():select(2) end, {desc="Switch to second harpoon item"})
-		vim.keymap.set("n", "<leader>hj", function() harpoon:list():select(3) end, {desc="Switch to third harpoon item"})
-		vim.keymap.set("n", "<leader>hk", function() harpoon:list():select(4) end, {desc="Switch to fourth harpoon item"})
+		require("harpoon"):setup({})
 	end,
 	keys = {
+		{
+			"<leader>hg",
+			function() require("harpoon"):list():select(1) end,
+			desc = "Switch to first harpoon item",
+		},
+		{
+			"<leader>hh",
+			function() require("harpoon"):list():select(2) end,
+			desc = "Switch to second harpoon item",
+		},
+		{
+			"<leader>hj",
+			function() require("harpoon"):list():select(3) end,
+			desc = "Switch to third harpoon item",
+		},
+		{
+			"<leader>hk",
+			function() require("harpoon"):list():select(4) end,
+			desc = "Switch to fourth harpoon item",
+		},
 		{
 			"<leader>hl",
 			function()

@@ -3,10 +3,6 @@ return {
 	event = "VimEnter",
 	lazy = false,
 	enabled = true,
-	dependencies = { 
-		"nvim-telescope/telescope.nvim"
-
-	},
 	config = function()
 		local dashboard = require "alpha.themes.dashboard"
 		local icons = require "config.icons"
