@@ -1,4 +1,4 @@
--- return {
+return {
 -- 	"robitx/gp.nvim",
 -- 	lazy = false,
 -- 	config = function()
@@ -143,4 +143,4 @@
 -- 			},
 -- 		})
 -- 	end,
--- }
+}
