@@ -43,6 +43,7 @@ for alias_files in ~/.zsh/aliases/*.zsh; do source $alias_files; done
 #source ~/.zsh/scripts/generate_url.sh
 export PATH="$HOME/.zsh/scripts:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/Library/pnpm/global/5/node_modules/@bluedrop-learning-networks/skillspass-dev-tools/bin/:$PATH"
 
 if command -v thefuck >/dev/null 2>&1; then

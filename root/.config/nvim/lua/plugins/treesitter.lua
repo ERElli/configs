@@ -1,7 +1,6 @@
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
-		tag = "v0.10.0",
 		dependencies = {
 			"HiPhish/rainbow-delimiters.nvim",
 			"nvim-treesitter/nvim-treesitter-textobjects"
@@ -28,7 +27,7 @@ return {
 
 			vim.g.skip_ts_context_commentstring_module = true
 
-			vim.g.nvim_tresitter = {
+			vim.g.nvim_treesitter = {
 					ensure_installed = {
 					"bash",
 					"html",
@@ -51,18 +50,13 @@ return {
 					"starlark",
 				},
 				sync_install = false,
-				highlight = { enable = true },
-				indent = { enable = true, disable = { "python" } },
-				incremental_selection = {
-					enable = true,
-					keymaps = {
-						init_selection = "gnn",
-						node_incremental = "grn",
-						scope_incremental = "grc",
-						node_decremental = "grm",
-					},
-				},
 			}
+
+			vim.api.nvim_create_autocmd("FileType", {
+				callback = function(args)
+					pcall(vim.treesitter.start, args.buf)
+				end,
+			})
 
 			require("nvim-treesitter-textobjects").setup {
 				select = {

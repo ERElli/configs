@@ -3,7 +3,7 @@ local icons = require("config.icons")
 return {
 	spaces = {
 		function()
-			local shiftwidth = vim.api.nvim_buf_get_option(0, "shiftwidth")
+			local shiftwidth = vim.bo.shiftwidth
 			return icons.ui.Tab .. " " .. shiftwidth
 		end,
 		padding = 1,
