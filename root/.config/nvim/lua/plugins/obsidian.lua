@@ -68,7 +68,21 @@ return {
 				"<leader>oft",
 				"<cmd>s/# \\([^-_]\\+\\(-[^-_]\\+\\)*\\)_[0-9]\\+/# \\1/g | s/-/ /g<cr>",
 				desc="Reformat obsidian note title"
-			}
+			},
+			{
+				"<leader>op",
+				"<cmd>MPObsidian<cr>",
+				desc="Markdown Preview (Obsidian)"
+			},
+			{ "<leader>obb", "<cmd>ObsidianBacklinks<cr>",   desc="Obsidian: backlinks" },
+			{ "<leader>obf", "<cmd>ObsidianFollowLink<cr>",  desc="Obsidian: follow link" },
+			{ "<leader>obt", "<cmd>ObsidianTags<cr>",        desc="Obsidian: tags" },
+			{ "<leader>obs", "<cmd>ObsidianSearch<cr>",      desc="Obsidian: search" },
+			{ "<leader>obl", "<cmd>ObsidianLinks<cr>",       desc="Obsidian: links in buffer" },
+			{ "<leader>obn", "<cmd>ObsidianNew<cr>",         desc="Obsidian: new note" },
+			{ "<leader>obq", "<cmd>ObsidianQuickSwitch<cr>", desc="Obsidian: quick switch" },
+			{ "<leader>obr", "<cmd>ObsidianRename<cr>",      desc="Obsidian: rename note" },
+			{ "<leader>obo", "<cmd>ObsidianOpen<cr>",        desc="Obsidian: open in app" },
 		},
 	}
 }
