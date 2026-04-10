@@ -203,16 +203,6 @@ return { -- LSP Configuration & Plugins
 		})
 		require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
-		vim.lsp.config('beancount', {
-			setup = {
-				filetypes = { "beancount", "bean" },
-				init_options = {
-					journal_file = "/Users/eric/Code/Beancount/main.beancount",
-				},
-				capabilities = capabilities,
-			}
-		})
-
 		require('mason-lspconfig').setup {
 			handlers = {
 				function(server_name)
@@ -234,5 +224,11 @@ return { -- LSP Configuration & Plugins
 			capabilities = capabilities,
 		})
 		vim.lsp.enable('tilt_ls')
+
+		vim.lsp.config('beancount', {
+			init_options = {
+				journal_file = "/Users/eric/Code/Beancount/main.beancount",
+			},
+		})
 	end,
 }
