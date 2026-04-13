@@ -27,8 +27,8 @@ return {
 
 			vim.g.skip_ts_context_commentstring_module = true
 
-			vim.g.nvim_treesitter = {
-					ensure_installed = {
+			require("nvim-treesitter").setup {
+				ensure_installed = {
 					"bash",
 					"html",
 					"dockerfile",
@@ -51,12 +51,6 @@ return {
 				},
 				sync_install = false,
 			}
-
-			vim.api.nvim_create_autocmd("FileType", {
-				callback = function(args)
-					pcall(vim.treesitter.start, args.buf)
-				end,
-			})
 
 			require("nvim-treesitter-textobjects").setup {
 				select = {
