@@ -3,6 +3,7 @@ return {
 	event = "BufEnter",
 	opts = function()
 		local opts = {
+			filter_kind = false,
 			attach_mode = "global",
 			show_guides = true,
 			backends = { "lsp", "treesitter", "markdown", "man" },
